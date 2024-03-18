@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import LinkButton from "./LinkButton.astro"
+import Nextjs from "./icons/Nextjs.astro";
+import Tailwindcss from "./icons/Tailwindcss.astro";
+import ExpressDark from "./icons/ExpressDark.astro";
+import Mysql from "./icons/Mysql.astro";
+import Postgresql from "./icons/Postgresql.astro";
+import Sequelize from "./icons/Sequelize.astro";
+import PrismaDark from "./icons/PrismaDark.astro";
+import BrandGithub from "./icons/BrandGithub.astro";
+import Link from "./icons/Link.astro";
+import TesloShopImg from "../../src/images/teslo-shop.png";
+import ShopSmart from "../../src/images/shop-smart.png";
+
+const TAGS = {
+    NEXT: {
+        name: "Next.js",
+        class: "bg-black text-white",
+        icon: Nextjs,
+    },
+    TAILWIND: {
+        name: "Tailwindcss",
+        class: "bg-[#003159] text-white",
+        icon: Tailwindcss,
+    },
+
+    EXPRESS: {
+        name: "Express.js",
+        class: "bg-[#003159] text-white",
+        icon: ExpressDark,
+    },
+
+    MYSQL: {
+        name: "Mysql",
+        class: "bg-white text-cyan-700",
+        icon: Mysql,
+    },
+
+    POSTGRESQL: {
+        name: "Postgresql",
+        class: "bg-[#003159] text-white",
+        icon: Postgresql,
+    },
+
+    SEQUELIZE: {
+        name: "Sequelize",
+        class: "bg-[#003159] text-white",
+        icon: Sequelize,
+    },
+
+    PRISMA: {
+        name: "Prisma",
+        class: "bg-black text-white",
+        icon: PrismaDark,
+    },
+};
+const PROJECTS = [
+    {
+        title: "TesloShop - Ecommerce",
+        description:
+            "A Full Stack E-commerce created with Next.js 14+ . App Router Implementation, Paypal as payment method, TypeScript.",
+        link: "https://sv-teslo-shop.vercel.app",
+        images: TesloShopImg,
+        github: "https://github.com/sergiovforesto/teslo-shop",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.POSTGRESQL, TAGS.PRISMA],
+    },
+    {
+        title: "ShopSmart - Ecommerce",
+        description:
+            "A complete e-commerce platform was built with Next.js on the client-side. The Express.js REST API utilizes Sequelize ORM for data queries.",
+        images: ShopSmart,
+        github: "https://github.com/sergiovforesto/Frontend-SmartShop",
+        tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MYSQL, TAGS.SEQUELIZE],
+    },
+];
+---
+
+<div class="flex flex-col gap-y-16">
+    {
+        PROJECTS.map(({ images, title, description, tags, link, github }) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                        <Image
+                            alt="Teslo Shop"
+                            class="object-cover object-top w-full h-52 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+                            loading="lazy"
+                            src={images}
+                        />
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 md:max-w-lg">
+                    <h3 class="text-2xl font-bold text-gray-100">
+                        {title}
+                    </h3>
+                    <div class="flex flex-wrap mt-2">
+                        <ul class="flex flex-row mb-2 gap-x-2">
+                            {tags.map((tag) => (
+                                <li>
+                                    <span
+                                        class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+                                    >
+                                        <tag.icon class="size-4" />
+                                        {tag.name}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div class="mt-2 text-[#9AA1AD]">
+                            {description}
+                        </div>
+                        <footer class="flex items-end justify-start mt-4 gap-x-4">
+                            {github && (
+                                <LinkButton href={github}>
+                                    <BrandGithub class="size-6" />
+                                    Code
+                                </LinkButton>
+                            )}
+                            {link && (
+                                <LinkButton href={link}>
+                                    <Link class="size-4" />
+                                    Preview
+                                </LinkButton>
+                            )}
+                        </footer>
+                    </div>
+                </div>
+            </article>
+        ))
+    }
+</div>

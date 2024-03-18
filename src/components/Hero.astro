@@ -1,0 +1,48 @@
+---
+import Badge from './Badge.astro'
+import SocialButton from '../components/SocialButton.astro'
+import EmailSend from './icons/EmailSend.astro'
+import BrandLinkedin from './icons/BrandLinkedin.astro'
+import BrandGithub from './icons/BrandGithub.astro'
+---
+
+
+<div class="max-w-xl">
+    <div class="flex gap-4 mb-4">
+      <a
+        href="https://linkedin.com/in/midudev"
+        target="_blank"
+        rel="noopener"
+        class="flex items-center transition md:justify-center md:hover:scale-105"
+      >
+        <Badge>Available to work</Badge>
+      </a>
+    </div>
+
+    <h1
+      class="text-4xl font-bold tracking-tight inline-flex animate-text-gradient bg-gradient-to-r from-[#ffffff] via-[#d9d9d9] to-[#d2d2d2] bg-[200%_auto] bg-clip-text text-transparent"
+    >
+        Hi, I'm Sergio Ventura  
+    </h1>
+
+    <p
+      class="mt-6 text-xl text-[#CFD2D9] dark:[&>strong]:text-[#94EB05] [&>strong]:text-[#94EB05] [&>strong]:font-semibold "
+    >
+        I'm <strong>full stack developer</strong>. Specializing in the development of unique web applications.
+    </p>
+    <nav class="flex flex-wrap gap-4 mt-8">
+      <SocialButton href="mailto:sergiovforesto@gmail.com">
+        <EmailSend class="size-4"/>
+          sergiovforesto@gmail.com
+      </SocialButton>
+      <SocialButton href="https://www.linkedin.com/in/sergio-ventura-0671a9240">
+        <BrandLinkedin class="size-4"/>
+          LinkedIn
+      </SocialButton>
+
+      <SocialButton href="https://github.com/sergiovforesto">
+        <BrandGithub class="size-4"/>
+          GitHub
+      </SocialButton>
+    </nav>
+  </div>

@@ -1,0 +1,41 @@
+---
+const navItems = [
+  
+  {
+    title: "Projects",
+    label: "projects",
+    url: "/#projects",
+  },
+  {
+    title: "About me",
+    label: "about-me",
+    url: "/#about-me",
+  },
+  {
+    title: "Contact",
+    label: "contact",
+    url: "mailto:sergiovforesto@gmail.com",
+  },
+]
+
+---
+
+<header class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2">
+    <nav id="header-nav" class="flex px-3 text-sm font-medium rounded-full text-gray-300  justify-center items-center">
+        {
+            navItems.map((link) => (
+              <a
+                class="relative block px-2 py-2 transition hover:text-[#A6EF2E]"
+                aria-label={link.label}
+                href={link.url}
+              >
+                {link.title}
+              </a>
+            ))
+          }
+    </nav>
+</header>
+
+
+
+
